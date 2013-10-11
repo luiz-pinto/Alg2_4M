@@ -1,0 +1,106 @@
+* Especificação do Trabalho sobre Pilhas
+
+Implementar um sistema onde o usuário insere expressões aritméticas (ex. 20 * (5 + 4))
+pelo teclado e o sistema responde com o valor correspondente (ex. "Resultado = 180").
+
+O programa termina quando o usuário escreve a palavra "fim".
+
+* Classes auxiliares
+
+Para esse sistema, é preciso utilizar uma classe de Pilha para o algoritmo de
+cálculo de expressão aritmética em formato pós-fixo (RPN - Notação Polonesa Reversa),
+e uma Pilha para o algoritmo de inversão de notação de expressão matemática.
+
+São fornecidas todas as classes necessárias para a avaliação da expressão RPN, e
+devem ser construídas as classes para a inversão de notação.
+
+Caso deseje, não é necessário utilizar as classes em anexo, e pode criar as suas
+próprias classes.
+
+* Algoritmo para inversão de notação infixa para pós-fixa
+
+1. Atribuir prioridades aos operadores que serão utilizados:
+	+,-: 1
+	*,/: 2
+	(: 3
+2. Enquanto existir um elemento (operador ou operando) na entrada:
+	2.1. Ler o próximo elemento da entrada.
+	2.2. Se for um operando, envia para a saída.
+	2.3. Se for um operador:
+		2.3.1. Se for o operador ")", desempilhar até que o
+			   operador "(" seja o operador "desempilhado";
+			   a cada operador desempilhado, enviar para a
+			   saída (com exceção do "(").
+		2.3.2. Senão, se o operador tiver prioridade MAIOR
+			   que o operador do topo da pilha, ou se a pilha
+			   estiver vazia, ou o operador do topo da pilha
+			   for "(", empilhar o operador.
+		2.3.3. Senão, dempilhar (enviando para a saída) os
+			   operadores da pilha até que o operador tenha
+			   prioridade MAIOR que o operador do topo, ou
+			   que o operador do topo da pilha seja "(",
+			   ou que a pilha esteja vazia. Empilhar o operador.
+3. Desempilhar os operadores da pilha enviando para a saída até
+   que a pilha fique vazia. Nenhum desse operadores pode ser o "(".
+
+NOTA: Lembre-se de reportar ao usuário as situações onde a expressão não foi
+corretamente digitada!
+
+* Data da Entrega do Trabalho: 20/10/2013
+
+* Forma de entrega do trabalho
+
+O sistema deve ser entregue utilizando o Github, no repositório que já está sendo
+utilizado para a disciplina.
+
+Neste repositório, deve existir um diretório com o nome "Planilha", onde será
+armazenada as classes do sistema. Devem ser utilizados "pacotes" para separar
+testes unitários, classes do sistema, classes de estruturas de dados e algoritmos.
+
+A sugestão para a estrutura de diretórios é a seguinte:
+
+	Planilha/
+		com/
+			senac/
+				estruturas/
+					test/
+				algoritmos/
+					test/
+				 
+Quando o trabalho estiver pronto, marcar com a "tag" ALG2_T2_X, substituindo
+"X" pelo número da "release", que será um número inteiro, começando em "1",
+por exemplo, ALG2_T2_1, ALG2_T2_2, e assim sucessivamente.
+
+Será avaliada a última "tag" entregue.
+
+O trabalho será considerado "entregue" com o envio de um email para o endereço:
+
+      rafael.jeffman@gmail.com
+      
+O email a ser enviado deve ter a seguinte estrutura:
+
+	Subject: [<turma>] Entrega do trabalho de Pilhas
+	
+	Prof.
+	
+	O trabalho de pilhas pode ser encontrado no repositório:
+	
+	<link do repositório>
+	
+	Sob a tag <nome_da_tag>.
+	
+	<nome_do_aluno>
+
+Substitua os itens entre "<>" pelo valor apropriado. A "turma" é o
+nome que estamos chamando as turmas, e é semelhante ao nome do repositório,
+sendo, por exemplo, Alg2_6T a turma de "Algoritmos 2, 6a. a Tarde".
+
+* Como o trabalho será avaliado
+
+- Correção da implementação
+- Organização do código
+- Aderência a essa especificação
+
+Boa sorte,
+
+Rafael
